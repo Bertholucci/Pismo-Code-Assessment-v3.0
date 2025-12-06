@@ -1,12 +1,12 @@
 package com.pismo.code.assessment.payment.domain.repository;
 
-import com.pismo.code.assessment.payment.domain.entity.Transaction;
+import com.pismo.code.assessment.payment.domain.entity.OperationType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
 @Repository
-public interface TransactionRepository extends JpaRepository<Transaction, UUID> {
+public interface OperationTypeRepository extends JpaRepository<OperationType, UUID> {
 
 }
