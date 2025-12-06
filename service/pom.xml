@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pismo.code.assessment</groupId>
-	<artifactId>java</artifactId>
+	<artifactId>payment</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>java</name>
 	<description>Project for the Pismo Code Assessment v.3.0 - Part 1 requirements</description>
