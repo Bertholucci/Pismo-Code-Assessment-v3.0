@@ -5,6 +5,7 @@ import com.pismo.code.assessment.domain.dto.account.AccountDto;
 import com.pismo.code.assessment.domain.entity.Account;
 import com.pismo.code.assessment.domain.repository.AccountRepository;
 import com.pismo.code.assessment.exception.BadRequestException;
+import com.pismo.code.assessment.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -37,7 +38,7 @@ public class AccountService {
         Optional<Account> account = this.findById(accountId);
 
         if(account.isEmpty()) {
-            throw new BadRequestException(String.format("The informed account '%s' does not exist", accountId));
+            throw new ResourceNotFoundException(String.format("The informed account '%s' does not exist", accountId));
         }
 
         return AccountDto.mapEntity(account.get());

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: java
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pismo
+    username: username
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+    show-sql: true
