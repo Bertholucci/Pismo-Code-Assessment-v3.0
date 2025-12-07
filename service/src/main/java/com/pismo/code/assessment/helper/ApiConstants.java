@@ -9,5 +9,4 @@ public class ApiConstants {
     public static final String ACCOUNT_ID = "accountId";
     public static final String OPERATION_TYPE_ID = "operationTypeId";
     public static final String TRANSACTION_ID = "transactionId";
-    public static final String OPERATION_TYPE_CACHE = "operationTypeById";
 }
