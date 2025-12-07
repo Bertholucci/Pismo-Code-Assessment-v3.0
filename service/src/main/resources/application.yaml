@@ -2,7 +2,7 @@ spring:
   application:
     name: java
   datasource:
-    url: jdbc:postgresql://localhost:5432/pismo
+    url: ${DATABASE_STRING_CONNECTION:jdbc:postgresql://localhost:5432/pismo}
     username: username
     password: password
   jpa:
