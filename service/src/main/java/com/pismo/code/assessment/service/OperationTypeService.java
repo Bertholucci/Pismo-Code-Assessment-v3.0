@@ -50,8 +50,4 @@ public class OperationTypeService {
             .chargeType(operationTypeCreationRequest.getChargeType())
         .build();
     }
-
-    public void deleteById(UUID operationTypeId) {
-        operationTypeRepository.deleteById(operationTypeId);
-    }
 }
