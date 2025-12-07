@@ -7,6 +7,7 @@ import com.pismo.code.assessment.domain.entity.Transaction;
 import com.pismo.code.assessment.domain.repository.TransactionRepository;
 import com.pismo.code.assessment.enums.ChargeTypeEnum;
 import com.pismo.code.assessment.exception.BadRequestException;
+import com.pismo.code.assessment.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,20 @@ public class TransactionService {
             log.error("There was an error trying to persist the transaction {}, for account {}, of operation type {} and amount of {} because of {}", transaction.getTransactionId(), transaction.getAccountId(), transaction.getOperationType(), transaction.getAmount(), exception.getLocalizedMessage());
             throw new RuntimeException(String.format("There was an error trying to persist transaction. The transaction ID is %s. Please contact the system administrator if the error persists", transaction.getTransactionId()));
         }
+    }
+
+    public TransactionDto searchTransaction(UUID transactionId) {
+        Optional<Transaction> transaction = this.findById(transactionId);
+
+        if(transaction.isEmpty()) {
+            throw new ResourceNotFoundException(String.format("The informed transaction '%s' does not exist", transactionId));
+        }
+
+        return TransactionDto.mapEntity(transaction.get());
+    }
+
+    private Optional<Transaction> findById(UUID transactionId) {
+        return transactionRepository.findById(transactionId);
     }
 
     private Transaction save(Transaction transaction) {
