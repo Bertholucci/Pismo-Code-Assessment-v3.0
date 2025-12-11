@@ -49,3 +49,12 @@ docker build -t pismo-java-application .
 ```sh
 docker run -p 8080:8080  -e DATABASE_STRING_CONNECTION="jdbc:postgresql://postgresql:5432/pismo" --network local-network --name pismo-java-container pismo-java-application
 ```
+
+## Future mapped improvements
+
+There are some features that could also be developed, but it would take some more time, which are:
+
+* Authentication for the users with the respective account number (preferably with OAuth 2.0)
+* Create a bulk strategy operation for transactions, using a resource like RabbitMQ or Kafka
+* Cache operations for "operation type" entity, which does not contain many data and can easily be optimized by caching the select operation by ID and implementing caching evict strategies for creation, deletion and update operations.
+* Also, there can be certain changes to the entities, with the goal to improve audit and LGPD specifications, such the identificiation of the timezone for the user, and the inclusion of "is_active" fields in the entities, so that no hard deletes are performed in the database.

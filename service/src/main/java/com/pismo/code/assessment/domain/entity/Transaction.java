@@ -33,6 +33,9 @@ public class Transaction implements Serializable {
     @Column(name = "amount")
     private BigDecimal amount;
 
+    @Column(name = "balance")
+    private BigDecimal balance;
+
     @Column(name = "event_date")
     private LocalDateTime eventDate = LocalDateTime.now();
 }

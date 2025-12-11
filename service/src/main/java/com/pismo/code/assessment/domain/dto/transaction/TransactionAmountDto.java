@@ -11,15 +11,9 @@ import java.util.UUID;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TransactionDto {
+public class TransactionAmountDto {
 
     private UUID transactionId;
-    private UUID accountId;
     private UUID operationTypeId;
-    private BigDecimal amount;
     private BigDecimal balance;
-
-    public static TransactionDto mapEntity(Transaction transaction) {
-        return new TransactionDto(transaction.getTransactionId(), transaction.getAccountId(), transaction.getOperationTypeId(), transaction.getAmount(), transaction.getBalance());
-    }
 }

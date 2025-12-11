@@ -1,0 +1,1 @@
+ALTER TABLE public.transaction ADD balance DECIMAL NOT NULL;

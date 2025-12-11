@@ -16,4 +16,7 @@ public class TransactionCreationDto {
     private UUID accountId;
     private UUID operationType;
     private BigDecimal amount;
+
+    @JsonIgnore
+    private BigDecimal balance;
 }

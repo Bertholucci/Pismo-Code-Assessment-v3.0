@@ -84,12 +84,13 @@ class TransactionControllerIT {
         UUID accountId = UUID.randomUUID();
         UUID operationTypeId = UUID.randomUUID();
         BigDecimal amount = BigDecimal.valueOf(15.78);
+        BigDecimal balance = BigDecimal.ZERO;
 
         createAccount(accountId);
         createOperationType(operationTypeId, ChargeTypeEnum.DEBIT);
 
         List<Transaction> transactions = List.of(
-            new Transaction(transactionId, accountId, operationTypeId, amount, LocalDateTime.now())
+            new Transaction(transactionId, accountId, operationTypeId, amount, balance, LocalDateTime.now())
         );
 
         transactionRepository.saveAll(transactions);
